@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import AllItems from './AllItems';
-import LowStock from './LowStock';
 import Create from './Create';
 
 const data=[
@@ -54,7 +53,7 @@ const HomeScreen = () => {
       </View>
 
       {view === 0 && <AllItems data={data}/>}
-      {view === 1 && <LowStock />}
+      {view === 1 && <AllItems data={data.filter((item)=>item.stock<5)}/>}
       {view === 2 && <Create />}
     </View>
   );
