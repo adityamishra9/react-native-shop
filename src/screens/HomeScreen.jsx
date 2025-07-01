@@ -15,7 +15,7 @@ const data=[
 ]
 
 const HomeScreen = () => {
-  const [view, setview] = useState(0);
+  const [view, setview] = useState(2);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Dashboard</Text>
@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     marginVertical: 10,
-    
   },
 
   btn: {
