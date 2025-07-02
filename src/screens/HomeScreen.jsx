@@ -3,19 +3,19 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import AllItems from './AllItems';
 import Create from './Create';
 
-const data=[
-    {id:1, name:'Wheat', stock: 5, unit: 'kg'},
-    {id:2, name:'Pulse', stock: 2, unit: 'kg'},
-    {id:3, name:'Grain', stock: 8, unit: 'kg'},
-    {id:4, name:'Corn', stock: 1, unit: 'kg'},
-    {id:5, name:'Rice', stock: 9, unit: 'kg'},
-    {id:6, name:'Basmati Rice', stock: 4, unit: 'kg'},
-    {id:7, name:'Pasta', stock: 12, unit: 'kg'},
-    {id:8, name:'Powder', stock: 51, unit: 'kg'},
-]
-
 const HomeScreen = () => {
   const [view, setview] = useState(2);
+    const [data, setdata] = useState([
+      {id:1, name:'Wheat', stock: 5, unit: 'kg'},
+      {id:2, name:'Pulse', stock: 2, unit: 'kg'},
+      {id:3, name:'Grain', stock: 8, unit: 'kg'},
+      {id:4, name:'Corn', stock: 1, unit: 'kg'},
+      {id:5, name:'Rice', stock: 9, unit: 'kg'},
+      {id:6, name:'Basmati Rice', stock: 4, unit: 'kg'},
+      {id:7, name:'Pasta', stock: 12, unit: 'kg'},
+      {id:8, name:'Powder', stock: 51, unit: 'kg'},
+  ]);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Dashboard</Text>
@@ -54,7 +54,7 @@ const HomeScreen = () => {
 
       {view === 0 && <AllItems data={data}/>}
       {view === 1 && <AllItems data={data.filter((item)=>item.stock<5)}/>}
-      {view === 2 && <Create />}
+      {view === 2 && <Create data={data} setdata={setdata}/>}
     </View>
   );
 };
